@@ -85,7 +85,7 @@ public class SysvarVerifyTest {
 
         @Test
         public void shouldPopulateResultInRequest() {
-            assertThat(request.getAttribute("sysvarValue").toString(), is("C:\\dev\\jdks\\jdk1.6.0_27"));
+            assertThat(request.getAttribute("sysvarValue"), is(not(nullValue())));
         }
     }
 

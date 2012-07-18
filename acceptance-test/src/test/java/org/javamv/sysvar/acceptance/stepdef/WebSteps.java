@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNot.not;
+import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -41,10 +43,10 @@ public class WebSteps {
         element.submit();
     }
 
-    @Then("^I can see \"([^\"]*)\" in result text$")
-    public void I_can_see_in_result_text(String expectedValue) {
+    @Then("^I can see some path in result text$")
+    public void I_can_see_in_result_text() {
         element = driver.findElement(By.id("result_text"));
-        assertThat(element.getText(), is(expectedValue));
+        assertThat(element.getText(), is(not(nullValue())));
     }
 
 }
